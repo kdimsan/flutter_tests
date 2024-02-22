@@ -3,27 +3,40 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  int value = 10;
-  runApp(MyApp(title: 'Primeiro App', value: value));
+  runApp(MyApp(
+    name: 'Ricardo',
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  final String title;
-  final int value;
-  const MyApp({Key? key, this.title = '', this.value = 0}) : super(key: key);
+class MyApp extends StatefulWidget {
+  //State not changeble
+  final String name;
+  const MyApp({super.key, this.name = ''});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  //Widget to change states
+  int salary = 7000;
+
+  void incrementSalary(int value) {
+    setState(() {
+      salary += value;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: Center(
-          child: Text(
-            'Olá mundo! $value',
-            style: TextStyle(fontSize: 50, color: Colors.black),
-          ),
+    return Center(
+      child: GestureDetector(
+        onTap: () {
+          incrementSalary(200);
+        },
+        child: Text(
+          'O salário de ${widget.name} é: $salary',
+          textDirection: TextDirection.ltr,
         ),
       ),
     );
