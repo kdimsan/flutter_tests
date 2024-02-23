@@ -21,24 +21,24 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Exemplo Scaffold'),
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Center(
               child: Text(
-                'Linha1 1',
+                'Coluna 1',
                 style: TextStyle(fontSize: 20),
               ),
             ),
             Center(
               child: Text(
-                'Linha1 2',
+                'Coluna 2',
                 style: TextStyle(fontSize: 20),
               ),
             ),
             Center(
               child: Text(
-                'Linha1 3',
+                'Coluna 3',
                 style: TextStyle(fontSize: 20),
               ),
             ),
