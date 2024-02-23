@@ -3,40 +3,46 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp(
-    name: 'Ricardo',
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  //State not changeble
-  final String name;
-  const MyApp({super.key, this.name = ''});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-  //Widget to change states
-  int salary = 7000;
-
-  void incrementSalary(int value) {
-    setState(() {
-      salary += value;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        onTap: () {
-          incrementSalary(200);
-        },
-        child: Text(
-          'O salário de ${widget.name} é: $salary',
-          textDirection: TextDirection.ltr,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Exemplo Scaffold'),
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Center(
+              child: Text(
+                'Linha1 1',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Center(
+              child: Text(
+                'Linha1 2',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            Center(
+              child: Text(
+                'Linha1 3',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ],
         ),
       ),
     );
