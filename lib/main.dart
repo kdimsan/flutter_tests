@@ -21,27 +21,19 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Exemplo Scaffold'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        body: Stack(
+          alignment: AlignmentDirectional.center,
           children: [
-            Center(
-              child: Text(
-                'Coluna 1',
-                style: TextStyle(fontSize: 20),
-              ),
+            Container(
+              width: 200,
+              height: 200,
+              color: Colors.red,
             ),
-            Center(
-              child: Text(
-                'Coluna 2',
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
-            Center(
-              child: Text(
-                'Coluna 3',
-                style: TextStyle(fontSize: 20),
-              ),
-            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.blue,
+            )
           ],
         ),
       ),
