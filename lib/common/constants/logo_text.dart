@@ -7,9 +7,11 @@ class LogoText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'World Points',
-      style: AppTextStyles.logoText.copyWith(color: AppColors.whiteOne),
+    return Center(
+      child: Text(
+        'World Points',
+        style: AppTextStyles.logoText.copyWith(color: AppColors.whiteOne),
+      ),
     );
   }
 }
