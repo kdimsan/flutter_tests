@@ -10,6 +10,8 @@ class CustomTextFormField extends StatelessWidget {
   final TextCapitalization? textCapitalization;
   final bool? obscureText;
   final Widget? suffixIcon;
+  final FormFieldValidator<String>? validator;
+
   const CustomTextFormField(
       {super.key,
       required this.labelText,
@@ -19,7 +21,8 @@ class CustomTextFormField extends StatelessWidget {
       this.textCapitalization,
       this.textInputType,
       this.obscureText,
-      this.suffixIcon});
+      this.suffixIcon,
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +30,7 @@ class CustomTextFormField extends StatelessWidget {
       padding:
           padding ?? EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
       child: TextFormField(
+        validator: validator,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: obscureText ?? false,
         keyboardType: textInputType ?? TextInputType.text,
@@ -44,6 +48,12 @@ class CustomTextFormField extends StatelessWidget {
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.lightBlueOne),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red),
           ),
         ),
       ),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:test_app/common/constants/app_colors.dart';
@@ -13,6 +15,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +24,7 @@ class _SignUpPageState extends State<SignUpPage> {
         children: [
           LogoText(),
           Form(
+            key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,6 +33,13 @@ class _SignUpPageState extends State<SignUpPage> {
                   labelText: 'Name',
                   hintText: 'Joao',
                   textCapitalization: TextCapitalization.words,
+                  validator: (value) {
+                    if (value != null && value.isEmpty) {
+                      return "This field cannot be empyt!";
+                    }
+
+                    return null;
+                  },
                 ),
                 CustomTextFormField(
                   labelText: 'Email',
@@ -54,7 +65,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   padding: const EdgeInsets.symmetric(
                       vertical: 4.0, horizontal: 24.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      final valid = _formKey.currentState?.validate();
+                      print(valid.toString());
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.lightBlueTwo,
                     ),
