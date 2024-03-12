@@ -49,6 +49,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 CustomPasswordField(
                   labelText: 'Password',
                   hintText: 'Abcde123#',
+                  helperText:
+                      'Your password must contain at leat one number and a special charecter.',
                 ),
                 CustomPasswordField(
                   labelText: 'Confirm Password',

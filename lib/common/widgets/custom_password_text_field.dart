@@ -11,6 +11,7 @@ class CustomPasswordField extends StatefulWidget {
   final bool? obscureText;
   final Widget? suffixIcon;
   final FormFieldValidator<String>? validator;
+  final String? helperText;
 
   const CustomPasswordField(
       {super.key,
@@ -22,7 +23,8 @@ class CustomPasswordField extends StatefulWidget {
       this.textCapitalization,
       this.obscureText,
       this.suffixIcon,
-      this.validator});
+      this.validator,
+      this.helperText});
 
   @override
   State<CustomPasswordField> createState() => _CustomPasswordFieldState();
@@ -37,6 +39,7 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
       labelText: widget.labelText,
       hintText: widget.hintText,
       obscureText: isHidden,
+      helperText: widget.helperText,
       suffixIcon: InkWell(
         borderRadius: BorderRadius.circular(28),
         onTap: () {
