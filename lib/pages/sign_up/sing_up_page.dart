@@ -1,8 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:test_app/common/constants/app_colors.dart';
+import 'package:test_app/common/validators/validators.dart';
 import 'package:test_app/common/widgets/custom_password_text_field.dart';
 import 'package:test_app/common/widgets/custom_text_form_field.dart';
 import 'package:test_app/common/constants/logo_text.dart';
@@ -33,13 +31,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   labelText: 'Name',
                   hintText: 'Joao',
                   textCapitalization: TextCapitalization.words,
-                  validator: (value) {
-                    if (value != null && value.isEmpty) {
-                      return "This field cannot be empyt!";
-                    }
-
-                    return null;
-                  },
+                  validator: Validator.validatorName,
                 ),
                 CustomTextFormField(
                   labelText: 'Email',
