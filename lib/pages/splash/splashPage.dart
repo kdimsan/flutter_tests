@@ -10,10 +10,10 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        alignment: Alignment.center,
+        alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topCenter,
+            begin: Alignment.center,
             end: Alignment.bottomCenter,
             colors: AppColors.gradientSplashBg,
           ),
@@ -24,11 +24,6 @@ class SplashPage extends StatelessWidget {
             LogoText(),
             CircularProgressIndicator(
               color: AppColors.whiteOne,
-            ),
-            Text(
-              'Splash Page',
-              style: AppTextStyles.bigText50w700
-                  .copyWith(color: AppColors.whiteOne),
             ),
           ],
         ),
