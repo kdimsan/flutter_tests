@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         MappedRoutes.onBoardingPage: (context) => const OnBoardingPage(),
         MappedRoutes.signUpPage: (context) => const SignUpPage(),
         MappedRoutes.signInPage: (context) => const SignInPage(),
+        MappedRoutes.appPage: (context) => const HomePage(),
       },
     );
   }

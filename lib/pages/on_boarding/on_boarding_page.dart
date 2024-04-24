@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/common/constants/app_colors.dart';
 import 'package:test_app/common/constants/logo_text.dart';
+import 'package:test_app/common/routes/routes.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
@@ -10,6 +11,10 @@ class OnBoardingPage extends StatefulWidget {
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
+  void _goToSignIn() {
+    Navigator.pushReplacementNamed(context, MappedRoutes.signInPage);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +61,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                         color: Colors.black),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: _goToSignIn,
                     child: Text(
                       "Sign in",
                       style: TextStyle(
