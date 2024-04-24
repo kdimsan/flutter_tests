@@ -12,19 +12,22 @@ class CustomTextFormField extends StatefulWidget {
   final Widget? suffixIcon;
   final FormFieldValidator<String>? validator;
   final String? helperText;
+  final TextEditingController? controller;
 
-  const CustomTextFormField(
-      {super.key,
-      required this.labelText,
-      this.padding,
-      this.maxLength,
-      this.hintText,
-      this.textCapitalization,
-      this.textInputType,
-      this.obscureText,
-      this.suffixIcon,
-      this.validator,
-      this.helperText});
+  const CustomTextFormField({
+    super.key,
+    required this.labelText,
+    this.padding,
+    this.maxLength,
+    this.hintText,
+    this.textCapitalization,
+    this.textInputType,
+    this.obscureText,
+    this.suffixIcon,
+    this.validator,
+    this.helperText,
+    this.controller,
+  });
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -59,27 +62,33 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: widget.obscureText ?? false,
         keyboardType: widget.textInputType ?? TextInputType.text,
-        cursorColor: AppColors.greyOne,
+        cursorColor: AppColors.whiteTwo,
+        controller: widget.controller,
         textCapitalization:
             widget.textCapitalization ?? TextCapitalization.none,
-        style: TextStyle(color: AppColors.lightBlueOne),
+        style:
+            TextStyle(color: AppColors.whiteTwo, fontWeight: FontWeight.w600),
         maxLength: widget.maxLength,
         decoration: InputDecoration(
           suffixIcon: widget.suffixIcon,
           helperText: _textHelper,
           helperMaxLines: 3,
           hintText: widget.hintText,
+          hintStyle:
+              TextStyle(color: AppColors.whiteTwo, fontWeight: FontWeight.w600),
           labelText: widget.labelText,
-          labelStyle: TextStyle(color: AppColors.greyOne),
+          labelStyle:
+              TextStyle(color: AppColors.whiteOne, fontWeight: FontWeight.w600),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.lightBlueOne),
+            borderSide: BorderSide(color: AppColors.whiteTwo, width: 1.0),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.lightBlueOne),
+            borderSide: BorderSide(color: AppColors.whiteTwo, width: 2.0),
           ),
           errorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
           ),
+          errorStyle: TextStyle(fontSize: 15.0),
           focusedErrorBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red),
           ),

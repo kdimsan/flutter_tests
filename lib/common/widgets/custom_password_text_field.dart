@@ -12,6 +12,7 @@ class CustomPasswordField extends StatefulWidget {
   final Widget? suffixIcon;
   final FormFieldValidator<String>? validator;
   final String? helperText;
+  final TextEditingController? controller;
 
   const CustomPasswordField(
       {super.key,
@@ -24,7 +25,8 @@ class CustomPasswordField extends StatefulWidget {
       this.obscureText,
       this.suffixIcon,
       this.validator,
-      this.helperText});
+      this.helperText,
+      this.controller});
 
   @override
   State<CustomPasswordField> createState() => _CustomPasswordFieldState();
@@ -35,11 +37,12 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      validator: widget.validator,
-      labelText: widget.labelText,
-      hintText: widget.hintText,
-      obscureText: isHidden,
+      controller: widget.controller,
       helperText: widget.helperText,
+      hintText: widget.hintText,
+      labelText: widget.labelText,
+      obscureText: isHidden,
+      validator: widget.validator,
       suffixIcon: InkWell(
         borderRadius: BorderRadius.circular(28),
         onTap: () {
