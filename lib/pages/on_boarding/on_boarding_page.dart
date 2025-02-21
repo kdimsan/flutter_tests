@@ -15,6 +15,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     Navigator.pushReplacementNamed(context, MappedRoutes.signInPage);
   }
 
+  void _goToSignUp() {
+    Navigator.pushReplacementNamed(context, MappedRoutes.signUpPage);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +45,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _goToSignUp,
                 child: Text(
                   "Create account",
                   style: TextStyle(

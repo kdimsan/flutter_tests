@@ -16,12 +16,12 @@ class Validator {
 
   static String? validatorEmail(String? value) {
     final condition =
-        RegExp(r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$");
+        RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
     if (value != null && value.isEmpty) {
       return "This field cannot be empyt!";
     }
     if (value != null && !value.contains(condition)) {
-      return 'Invalid character in name.';
+      return 'Please, insert a valid email.';
     }
 
     return null;
